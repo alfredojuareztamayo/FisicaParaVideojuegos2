@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-   private float dist;
+   public float dist;
 
    [Header("Velocity of the hook andd the object")]
    public float speed = 2f;
@@ -19,7 +19,10 @@ public class GameManager : MonoBehaviour
    public GameObject gameObject3;
    public Transform gameObject4;
    public bool IsAttach = false;
-   public float distanceToAttach;
+   public int distanceToAttach;
+    public float masa = 10f;
+    public PropertyPescadito pescado;
+    public float AguanteDelHook;
 
 
    
@@ -35,13 +38,16 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         dist = Formulas.Distance(gameObject1, gameObject2);
-        Debug.Log(dist);
-        CrashHook();
+       // Debug.Log(dist);
+        if(Input.GetKey(KeyCode.F)){
+            CrashHook();
+        }
         //gameObject2.transform.position = Formulas.Position(gameObject2, -speedRandom * Time.deltaTime, 0, 0);
         attachObject();
     }
     public void CrashHook()
     {
+
         RaycastHit hit;
         Ray ray;
         ray = new Ray(gameObject1.transform.position, Vector3.forward);
@@ -49,13 +55,18 @@ public class GameManager : MonoBehaviour
         if (!IsAttach)
         {
             gameObject1.transform.position = Formulas.Position(gameObject1, 0, 0, speed * Time.deltaTime);
-            if (Physics.Raycast(ray, out hit, dist = 0.5f))
+
+            if (Physics.Raycast(ray, out hit, dist = 0.5f) /*&& AguanteDelHook > pescado.masa*/)
             {
-                Debug.Log("Golpee pared izq");
+               speed *= -1;
                 Debug.Log("Hit");
-                IsAttach = true;
-                speed *= -1;
+                
             }
+            //else
+            //{
+            //    Debug.Log("Muy pesado");
+            //    Object.Destroy(gameObject1);
+            //}
 
         }
         else

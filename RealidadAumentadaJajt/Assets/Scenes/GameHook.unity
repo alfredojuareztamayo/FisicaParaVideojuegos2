@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 705507994}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028346, g: 0.22571373, b: 0.30692244, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -188,8 +188,9 @@ GameObject:
   - component: {fileID: 296699083}
   - component: {fileID: 296699082}
   - component: {fileID: 296699081}
+  - component: {fileID: 296699085}
   m_Layer: 0
-  m_Name: Cube
+  m_Name: Hook
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -281,6 +282,23 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &296699085
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 296699080}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4919ddbe5ba4e24ab02bec5a4d46e0f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hook: {fileID: 296699080}
+  masa: 0
+  AguanteDelHook: 20
+  manager: {fileID: 1242601227}
+  pescadito: {fileID: 704211058}
 --- !u!1 &704211053
 GameObject:
   m_ObjectHideFlags: 0
@@ -293,9 +311,10 @@ GameObject:
   - component: {fileID: 704211056}
   - component: {fileID: 704211055}
   - component: {fileID: 704211054}
+  - component: {fileID: 704211058}
   m_Layer: 0
-  m_Name: Cube B
-  m_TagString: Untagged
+  m_Name: Pescadito
+  m_TagString: Pescadito
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -386,6 +405,21 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &704211058
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 704211053}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90af848e50e538c4f90788e389285b56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Pescado: {fileID: 704211053}
+  masa: 15
+  manager: {fileID: 1242601227}
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -642,6 +676,9 @@ MonoBehaviour:
   gameObject4: {fileID: 296699084}
   IsAttach: 0
   distanceToAttach: 0
+  masa: 10
+  pescado: {fileID: 704211058}
+  AguanteDelHook: 10
   layerMask:
     serializedVersion: 2
     m_Bits: 0

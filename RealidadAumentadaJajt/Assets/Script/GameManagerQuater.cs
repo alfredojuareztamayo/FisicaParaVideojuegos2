@@ -19,8 +19,8 @@ public class GameManagerQuater : MonoBehaviour
     {
 
         Vector3 rotarx = FisicalManager.RotateX(gameObject1, angle);
-        gameObject1.transform.position = (rotarx*speedToRotate*Time.deltaTime);
-      //  gameObject1.transform.Rotate(rotarx*speedToRotate*Time.fixedDeltaTime);
+        gameObject1.transform.position += (rotarx*speedToRotate*Time.deltaTime);
+         //gameObject1.transform.Rotate();
         
     }
 }
